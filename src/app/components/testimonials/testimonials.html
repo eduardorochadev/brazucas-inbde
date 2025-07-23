@@ -2,16 +2,16 @@
   <div class="container">
     <div class="section-header text-center">
       <div class="section-badge">
-        <span>VALIDADO POR DENTISTAS APROVADOS</span>
+        <span>{{ content.testimonials.badge}}</span>
       </div>
       <h2 class="section-title">
-        Confira o que dizem sobre o curso:
+        {{ content.testimonials.title}}
       </h2>
     </div>
     
     <div class="testimonials-carousel">
       <div class="testimonials-container" [style.transform]="'translateX(' + (-currentSlide * 100) + '%)'">
-        <div class="testimonial-slide" *ngFor="let testimonial of testimonials; let i = index">
+        <div class="testimonial-slide" *ngFor="let testimonial of content.testimonials.items; let i = index">
           <div class="testimonial-card card">
             <div class="testimonial-content">
               <div class="quote-icon">
@@ -48,7 +48,7 @@
         
         <div class="carousel-indicators">
           <button 
-            *ngFor="let testimonial of testimonials; let i = index"
+            *ngFor="let testimonial of content.testimonials.items; let i = index"
             class="indicator"
             [class.active]="i === currentSlide"
             (click)="goToSlide(i)"
@@ -59,7 +59,7 @@
         <button 
           class="carousel-btn carousel-next" 
           (click)="nextSlide()"
-          [disabled]="currentSlide === testimonials.length - 1"
+          [disabled]="currentSlide === content.testimonials.items.length - 1"
           aria-label="Próximo depoimento">
           <i class="fas fa-chevron-right" aria-hidden="true"></i>
         </button>

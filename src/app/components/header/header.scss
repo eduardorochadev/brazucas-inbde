@@ -1,3 +1,7 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap');
+
+
 .header {
   position: fixed;
   top: 0;
@@ -7,6 +11,7 @@
   box-shadow: var(--shadow-sm);
   z-index: 1000;
   transition: all var(--transition-normal);
+  font-family: Titillium Web, sans-serif;
 }
 
 .navbar {

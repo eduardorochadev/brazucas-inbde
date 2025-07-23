@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { LanguageService, LanguageContent } from '../../services/language.service';
 @Component({
   selector: 'app-hero',
   standalone: true,
@@ -8,5 +8,14 @@ import { CommonModule } from '@angular/common';
   templateUrl: './hero.html',
   styleUrl: './hero.scss'
 })
-export class HeroComponent {
+export class HeroComponent implements OnInit {
+ content!: LanguageContent;
+
+  constructor(private languageService: LanguageService) {}
+
+  ngOnInit(): void {
+    this.languageService.currentLanguage$.subscribe(() => {
+      this.content = this.languageService.getContent();
+    });
+  }
 }

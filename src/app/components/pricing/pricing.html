@@ -2,13 +2,13 @@
   <div class="container">
     <div class="section-header text-center">
       <div class="section-badge">
-        <span>OS PLANOS</span>
+        <span>{{content.pricing.badge}}</span>
       </div>
       <h2 class="section-title">
-        Brazucas no Board
+         {{ content.pricing.title }}
       </h2>
       <p class="section-description">
-        Escolha o plano que melhor se adapta às suas necessidades e comece sua jornada rumo à aprovação no INBDE.
+        {{ content.pricing.subtitle }}
       </p>
     </div>
     
@@ -16,37 +16,37 @@
       <div class="feature-badges">
         <div class="feature-badge">
           <i class="fas fa-shield-alt" aria-hidden="true"></i>
-          <span>Garantia de 7 dias</span>
+          <span>{{ content.pricing.guarantee }}</span>
         </div>
         <div class="feature-badge">
           <i class="fas fa-lock" aria-hidden="true"></i>
-          <span>Compra segura</span>
+          <span>{{ content.pricing.secure }}</span>
         </div>
       </div>
     </div>
     
     <div class="pricing-grid">
-      <div class="pricing-card card" *ngFor="let plan of plans; let i = index" 
-           [class.featured]="plan.featured">
+      <div class="pricing-card card"
+           [class.featured]="content.pricing.plan.featured">
         <div class="plan-header">
-          <div class="plan-badge" *ngIf="plan.badge">
-            {{ plan.badge }}
+          <div class="plan-badge" *ngIf="content.pricing.plan.badge">
+            {{ content.pricing.plan.badge }}
           </div>
-          <h3 class="plan-name">{{ plan.name }}</h3>
-          <p class="plan-description">{{ plan.description }}</p>
+          <h3 class="plan-name">{{ content.pricing.plan.title }}</h3>
+          <p class="plan-description">{{ content.pricing.plan.description }}</p>
         </div>
         
         <div class="plan-price">
           <div class="price-amount">
             <span class="currency">$</span>
-            <span class="amount">{{ plan.price }}</span>
+            <span class="amount">{{ content.pricing.plan.price }}</span>
           </div>
-          <div class="price-period">{{ plan.period }}</div>
+          <div class="price-period">{{ content.pricing.plan.period }}</div>
         </div>
         
         <div class="plan-features">
           <ul>
-            <li *ngFor="let feature of plan.features">
+            <li *ngFor="let feature of content.pricing.plan.features">
               <i class="fas fa-check" aria-hidden="true"></i>
               <span>{{ feature }}</span>
             </li>
@@ -54,8 +54,8 @@
         </div>
         
         <div class="plan-action">
-          <a href="#" class="btn" [class]="plan.featured ? 'btn-primary' : 'btn-outline'">
-            {{ plan.buttonText }}
+          <a href="#" class="btn" [class]="content.pricing.plan.featured ? 'btn-primary' : 'btn-outline'">
+            {{ content.hero.buttons.apply }}
           </a>
         </div>
       </div>
@@ -66,22 +66,19 @@
         <div class="guarantee-icon">
           <i class="fas fa-shield-alt" aria-hidden="true"></i>
         </div>
-        <h3 class="guarantee-title">Você está totalmente protegido!</h3>
+        <h3 class="guarantee-title">{{ content.pricing.protection.title }}</h3>
         <p class="guarantee-text">
-          Isso mesmo, você está totalmente protegido e investir o seu dinheiro no treinamento não é um risco. 
-          Justamente porque durante 7 dias, você tem garantia incondicional, portanto pode garantir a sua vaga 
-          e caso dentro desse período sinta que o treinamento não é para você, eu devolvo todo o seu dinheiro.
+          {{ content.pricing.protection.description }}
         </p>
       </div>
     </div>
     
     <div class="pricing-savings text-center">
       <h3 class="savings-title">
-        Você economiza mais de U$ 1 mil dólares<br>
-        ao garantir sua vaga em grupo ou individual!
+        {{ content.pricing.savings.title }}
       </h3>
       <p class="savings-description">
-        Investimento que se paga com o primeiro mês de trabalho nos EUA.
+        {{ content.pricing.savings.description }}
       </p>
     </div>
   </div>
